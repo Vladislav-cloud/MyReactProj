@@ -52,20 +52,51 @@ const ExpenseForm = () => {
         // });
     };
 
+    const sumbitHandler = (event) => {
+        event.preventDefault();
+
+        const expenseData = {
+            title: enteredTitle,
+            amount: enteredAmount,
+            date: Date(enteredDate)
+        };
+
+        console.log(expenseData);
+        setEnteredTitle('');
+        setEnteredAmount('');
+        setEnteredDate('');
+    };
+
     return (
-        <form>
+        <form onSubmit={sumbitHandler}>
             <div className='new-expense__controls'>
                 <div className='new-expense__control'>
                     <label>Title</label>
-                    <input type='text' onChange={titleChangeHandler} />
+                    <input 
+                        type='text'
+                        value={enteredTitle}
+                        onChange={titleChangeHandler}
+                    />
                 </div>
                 <div className='new-expense__control'>
                     <label>Amount</label>
-                    <input type='number' min="0.01" step="0.01" onChange={amountChangeHnadler} />
+                    <input
+                        type='number'
+                        min="0.01"
+                        step="0.01"
+                        value={enteredAmount}
+                        onChange={amountChangeHnadler} 
+                    />
                 </div>
                 <div className='new-expense__control'>
                     <label>Date</label>
-                    <input type='date' min="2019-01-01" max="2022-12-31" onChange={dateChangeHnadler} />
+                    <input
+                        type='date'
+                        min="2019-01-01"
+                        max="2023-12-31"
+                        value={enteredDate}
+                        onChange={dateChangeHnadler}
+                    />
                 </div>
             </div>
             <div className="new-expense__actions">
