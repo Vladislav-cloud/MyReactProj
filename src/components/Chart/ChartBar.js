@@ -1,12 +1,12 @@
-import react from "react";
+import React from "react";
 
 import './ChartBar.css';
 
 const ChartBar = props => {
     let barFillHeight = '0%';
 
-    if (props.max > 0) {
-        barFillHeight = math.round((props.value / props.maxValue) * 100) + '%';
+    if (props.maxValue > 0) {
+        barFillHeight = Math.round((props.value / props.maxValue) * 100) + '%';
     }
 
     return (
@@ -22,4 +22,4 @@ const ChartBar = props => {
     );
 };
 
-export default ChartBar;
+export default ChartBar;                              
